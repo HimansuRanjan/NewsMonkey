@@ -48,46 +48,15 @@ export class News extends Component {
   }
 
   async componentDidMount() {
-    // console.log("cdm");
-    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=423e1d36a73a422db0200502811315f3&pageSize=${this.props.pageSize}&page=1`;
-    // this.setState({loading: true});
-    // let data = await fetch(url);
-    // let parsedData = await data.json();
-    // console.log(parsedData);
-    // this.setState({
-    //   articles: parsedData.articles,
-    //   totalResults: parsedData.totalResults,
-    //   loading:false
-    //   });
     this.updateNews();
   }
 
   // handleNextClick = async () => {
-  //   // if(!(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize))){
-  //   //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=423e1d36a73a422db0200502811315f3&pageSize=${this.props.pageSize}&page=${this.state.page + 1}`;
-  //   //   this.setState({loading: true});
-  //   //   let data = await fetch(url);
-  //   //   let parsedData = await data.json();
-  //   //   this.setState({
-  //   //     articles: parsedData.articles,
-  //   //     page: this.state.page + 1,
-  //   //     loading: false
-  //   //   });
-  //   // }
   //   this.setState({ page: this.state.page + 1 });
   //   this.updateNews();
   // };
 
   // handlePreviousClick = async () => {
-  //   // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=423e1d36a73a422db0200502811315f3&pageSize=${this.props.pageSize}&page=${this.state.page - 1}`;
-  //   // this.setState({loading: true});
-  //   // let data = await fetch(url);
-  //   // let parsedData = await data.json();
-  //   // this.setState({
-  //   //   articles: parsedData.articles,
-  //   //   page: this.state.page - 1,
-  //   //   loading: false
-  //   // });
   //   this.setState({ page: this.state.page - 1 });
   //   this.updateNews();
   // };
@@ -108,7 +77,6 @@ export class News extends Component {
     return (
       <>
       
-        {/* <Spinner/> */}
         <h1 className="text-center">
           NewsMonkey - Top {this.capitalizeLetter(this.props.category)}{" "}
           Headlines{" "}
@@ -133,27 +101,6 @@ export class News extends Component {
           </div>
         </InfiniteScroll>
        
-        {/* <div className="container d-flex justify-content-between">
-          <button
-            disabled={this.state.page <= 1}
-            type="button"
-            className="btn btn-dark"
-            onClick={this.handlePreviousClick}
-          >
-            &larr; Previous
-          </button>
-          <button
-            disabled={
-              this.state.page + 1 >
-              Math.ceil(this.state.totalResults / this.props.pageSize)
-            }
-            type="button"
-            className="btn btn-dark"
-            onClick={this.handleNextClick}
-          >
-            Next &rarr;
-          </button>
-        </div> */}
       </>
     );
   }
