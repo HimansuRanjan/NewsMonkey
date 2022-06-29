@@ -9,9 +9,11 @@ export class NewsItem extends Component {
     return (
       <div className='my-3'>
         <div className="card" style={{width: "18rem"}}>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <div style={{display:'flex', justifyContent: 'center', right:'0', position:'absolute'}}>
+        <span class="badge rounded-pill bg-danger">
           {source}
         </span>
+        </div>
           <img src={!imageUrl?"https://images.moneycontrol.com/static-mcnews/2022/03/fandosensexniftyderivative-1-770x433.jpg":imageUrl} className="card-img-top" alt="..." style={{width: "286px", height: "161px"}}/>
           <div className="card-body"> 
             <h5 className="card-title">{title}</h5>
