@@ -37,21 +37,6 @@ const News = (props)=> {
     props.setProgress(100);
   }
 
-  
-  // const componentDidMount= async ()=> {
-  //   updateNews();
-  // }
-
-  //const handleNextClick = async () => {
-  //   setPage(page+1);
-  //   updateNews();
-  // };
-
-  //const handlePreviousClick = async () => {
-  //   setPage(page-1);
-  //   updateNews();
-  // };
-
   const fetchMoreData =  async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=${props.apiKey}&pageSize=${props.pageSize}&page=${page+1}`;
     setPage(page+1);
@@ -64,7 +49,6 @@ const News = (props)=> {
 
   return (
       <>
-      
         <h1 className="text-center" style={{margin:'35px 0px', marginTop: '90px'}}>
           NewsMonkey - Top {capitalizeLetter(props.category)}{" "}
           Headlines{" "}
@@ -78,14 +62,14 @@ const News = (props)=> {
           loader={<Spinner/>}
         >
           <div className="container my-3">
-          <div className="row">
-            {articles.map((element) => {
-              return (<div className="col-md-4" key={element.url}><NewsItem title={element.title ? element.title.slice(0, 45) : ""} 
-                description={element.description? element.description.slice(0, 45): ""} imageUrl={element.urlToImage} newsUrl={element.url} 
-                author={element.author} date={element.publishedAt} source={element.source.name} /></div> 
-                );
-            })}
-          </div>
+            <div className="row">
+              {articles.map((element) => {
+                return (<div className="col-md-4" key={element.url}><NewsItem title={element.title ? element.title.slice(0, 45) : ""} 
+                  description={element.description? element.description.slice(0, 45): ""} imageUrl={element.urlToImage} newsUrl={element.url} 
+                  author={element.author} date={element.publishedAt} source={element.source.name} /></div> 
+                  );
+              })}
+            </div>
           </div>
         </InfiniteScroll>
        
